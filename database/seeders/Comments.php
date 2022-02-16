@@ -18,17 +18,17 @@ class Comments extends Seeder
         DB::table('comments')->insert([
             'content' => 'Bài viết rất hay, rất bổ ích, quá tuyệt vời luôn :)))',
             'user_id' => '1',
-            'post_id' => '1'
+            'post_id' => '4'
         ]);
         DB::table('comments')->insert([
             'content' => 'Bài viết rất hay, rất bổ ích, quá tuyệt vời luôn :)))',
             'user_id' => '1',
-            'post_id' => '1'
+            'post_id' => '4'
         ]);
         DB::table('comments')->insert([
             'content' => 'Bài viết rất hay, rất bổ ích, quá tuyệt vời luôn :)))',
             'user_id' => '1',
-            'post_id' => '1'
+            'post_id' => '6'
         ]);
     }
 }
