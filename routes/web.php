@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/')->group(function(){
-    Route::get('/', function () {
-        return view('pages.blog');
-    })->name('blog');
-    Route::get('/detail', function(){
-        return view('pages.blog-detail');
-    });
+    Route::get('/', [PostsController::class, 'index'])->name('blog');
+    Route::get('detail', [PostsController::class, 'blogDetail'])->name('detail');
+    Route::get('login', [LoginController::class, 'index'])->name('view.login');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
+    Route::get('register', [RegisterController::class, 'index'])->name('view.register');
+    Route::post('register', [RegisterController::class, 'register'])->name('register');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
