@@ -18,13 +18,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('/')->group(function(){
-    Route::get('/', [PostsController::class, 'index'])->name('blog');
-    Route::get('detail', [PostsController::class, 'blogDetail'])->name('detail');
+    Route::get('/', [PostsController::class, 'index'])->name('blog')->middleware('auth');
+    Route::get('detail', [PostsController::class, 'blogDetail'])->name('detail')->middleware('auth');
     Route::get('login', [LoginController::class, 'index'])->name('view.login');
     Route::post('login', [LoginController::class, 'login'])->name('login');
     Route::get('register', [RegisterController::class, 'index'])->name('view.register');
     Route::post('register', [RegisterController::class, 'register'])->name('register');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('add_blog', function(){
+        return view('pages.add-blog');
+    })->name('add-blog');
 });
 // Auth::routes();
 

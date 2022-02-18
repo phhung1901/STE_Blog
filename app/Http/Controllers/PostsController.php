@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -13,7 +14,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('pages.blog');
+        // return view('pages.blog');
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+                    ->select('users.name as user_name', 'content', 'title', 'image', 'posts.created_at')
+                    ->get();
+        return view('pages.blog', [
+            'posts' => $posts
+        ]);
     }
 
     public function blogDetail(){

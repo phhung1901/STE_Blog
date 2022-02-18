@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Tạo bài viết</a></li>
+                <li class="nav-item"><a href="{{route('add-blog')}}" class="nav-link">Tạo bài viết</a></li>
                 @if (Auth::check())
                     <li class="nav-item active"><a href="#" class="nav-link">{{ Auth::user()->name }}</a></li>
                     <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link">Đăng xuất</a></li>
